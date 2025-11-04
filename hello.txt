@@ -1,0 +1,119 @@
+. Five Grafana CLI Commands with Their Uses
+CommandUsegrafana-cli plugins list-remoteLists all available plugins from Grafana’s repository.grafana-cli plugins install <plugin-id>Installs a specific plugin by ID.grafana-cli plugins update-allUpdates all installed plugins to the latest version.grafana-cli admin reset-admin-password <new_password>Resets the Grafana admin password.grafana-cli plugins remove <plugin-id>Removes a specific plugin from Grafana.
+
+2. Commands to Start Grafana Server and Log in Using CLI
+# Start Grafana server
+sudo systemctl start grafana-server
+
+# Enable Grafana to start on boot
+sudo systemctl enable grafana-server
+
+# Log in (default credentials)
+username: admin
+password: admin
+# Or change password using CLI
+grafana-cli admin reset-admin-password <new_password>
+
+
+3. Commands to View Logs and Restart Grafana Service
+# View Grafana logs
+sudo journalctl -u grafana-server -f
+
+# Restart Grafana service
+sudo systemctl restart grafana-server
+
+
+4. Five Basic Kubernetes Commands with Their Purpose
+CommandPurposekubectl get podsLists all running pods in the cluster.kubectl get nodesShows all nodes in the cluster.kubectl describe pod <pod-name>Displays detailed information about a specific pod.kubectl delete pod <pod-name>Deletes a specific pod.kubectl get servicesLists all services in the cluster.
+
+5. Commands to Create, Get, Describe, and Delete a Pod
+# Create a pod
+kubectl run mypod --image=nginx
+
+# Get all pods
+kubectl get pods
+
+# Describe a specific pod
+kubectl describe pod mypod
+
+# Delete a specific pod
+kubectl delete pod mypod
+
+
+6. Use of kubectl get, kubectl apply, and kubectl delete
+CommandPurposeSyntaxkubectl getDisplays resources (pods, nodes, deployments, etc.)kubectl get <resource>kubectl applyCreates or updates resources from a YAML/JSON filekubectl apply -f <filename>.yamlkubectl deleteDeletes specified resourceskubectl delete <resource> <name>
+
+7. Commands to Check Cluster Nodes, Get Deployments, and View Pod Status
+# Check all cluster nodes
+kubectl get nodes
+
+# Get all deployments
+kubectl get deployments
+
+# View pod status
+kubectl get pods -o wide
+
+
+8. Commands to Scale a Deployment and View Logs of a Pod
+# Scale a deployment to 3 replicas
+kubectl scale deployment my-deployment --replicas=3
+
+# View logs of a specific pod
+kubectl logs mypod
+
+
+9. Five Docker Commands with Their Uses
+CommandUsedocker pull <image>Downloads an image from Docker Hub.docker run <image>Runs a new container from an image.docker psLists running containers.docker stop <container_id>Stops a running container.docker rm <container_id>Removes a container.
+
+10. Commands to Pull Image, Run, List, and Stop Containers
+# Pull image
+docker pull nginx
+
+# Run a container
+docker run -d --name mynginx nginx
+
+# List containers
+docker ps -a
+
+# Stop container
+docker stop mynginx
+
+
+11. Difference Between docker run, docker ps, and docker stop
+CommandDescriptionExampledocker runCreates and starts a new container from an image.docker run -d nginxdocker psLists all running containers.docker psdocker stopStops a running container.docker stop mynginx
+
+12. Commands to Create a Dockerfile, Build an Image, and Run It
+# Create Dockerfile (example)
+echo -e "FROM nginx\nCOPY . /usr/share/nginx/html" > Dockerfile
+
+# Build an image
+docker build -t mywebapp .
+
+# Run the image as a container
+docker run -d -p 8080:80 mywebapp
+
+
+13. Docker Commands to Check Logs, Remove an Image, and Inspect a Container
+# Check container logs
+docker logs <container_id>
+
+# Remove an image
+docker rmi <image_id>
+
+# Inspect container details
+docker inspect <container_id>
+
+
+14. What is Prometheus?
+Prometheus is an open-source monitoring and alerting tool used to collect and store metrics as time-series data.
+It is often used with Grafana for visualization. It helps monitor applications, infrastructure, and containers like Kubernetes.
+
+15. What is Jira?
+Jira is a project management and issue-tracking tool developed by Atlassian.
+It is widely used for agile project management, bug tracking, and workflow automation.
+
+16. What is Grafana?
+Grafana is an open-source data visualization and analytics tool.
+It allows users to create dashboards and monitor metrics from data sources like Prometheus, InfluxDB, and Elasticsearch.
+
+Would you like me to format this into a PDF report for printing or submission?
